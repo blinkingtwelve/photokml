@@ -4,7 +4,7 @@ Generates a .kml geoindex of photographs based on GPS information in EXIF tags.
 Run it on a bunch of photos, load up the .kml in Google Earth, and click the icons
 to view your pictures. Screenshot:
 
-![](screenshot.png)
+![A photokml-generated KML file loaded up in Google Earth](https://raw.githubusercontent.com/blinkingtwelve/photokml/master/screenshot.png)
 
 ```
 usage: photokml.py [-h] [-x MAXWIDTH] [-y MAXHEIGHT] [-b BUNCHUP]

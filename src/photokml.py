@@ -13,11 +13,8 @@ from collections import defaultdict
 from xml.sax.saxutils import escape as xmlentityize
 from urllib.parse import quote as urlquote
 
-try:
-    import piexif
-    import simplekml
-except ImportError as e:
-    exit('Missing requirements; see requirements.txt for what I need: %s' % e)
+import piexif
+import simplekml
 
 # Constants per https://exiftool.org/TagNames/GPS.html
 GPSLatitudeRef = 1
@@ -166,7 +163,7 @@ def main(filelist: list, maxw: int, maxh: int, bunchup: int):
     print(kml.kml())
 
 
-if __name__ == '__main__':
+def cli():
     parser = ArgumentParser(description="Generates a .kml geoindex (on stdout) of photographs based on GPS information in EXIF tags.")
     parser.add_argument('-x', '--maxwidth', default=1200, type=int, help="Limit picture display width to N pixels (1200 by default)")
     parser.add_argument('-y', '--maxheight', default=700, type=int, help="Limit picture display height to N pixels (700 by default)")
@@ -174,3 +171,7 @@ if __name__ == '__main__':
     parser.add_argument('files', nargs='+', metavar='FILE')
     args = parser.parse_args()
     main(args.files, args.maxwidth, args.maxheight, args.bunchup)
+
+
+if __name__ == '__main__':
+    cli()
